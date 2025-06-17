@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosystem Protection | Save Our Planet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --secondary: #388e3c;
+            --accent: #8bc34a;
+            --light: #f1f8e9;
+            --dark: #1b5e20;
+            --text: #333;
+            --text-light: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: var(--text-light);
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin: 30px 0;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h1, h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        strong {
+            color: var(--dark);
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .action-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .action-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .action-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .action-item h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+            background: linear-gradient(to right, var(--dark), var(--primary));
+        }
+
+        button i {
+            margin-left: 8px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: var(--accent);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Protect Our Planet's Ecosystems</h1>
+            <p>Join the movement to preserve Earth's delicate balance of life. Every action counts in safeguarding our natural world for future generations.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="understanding">
+            <h2>Understanding Ecosystems</h2>
+            <p>An ecosystem is a complex and interconnected web of life where living organisms interact with each other and their physical environment. Ecosystems can vary widely, from a small pond to a vast rainforest, but they all share common components:</p>
+            <ul>
+                <li><strong>Abiotic Factors:</strong> These are non-living components like air, water, soil, sunlight, and temperature, which influence the ecosystem's health and diversity.</li>
+                <li><strong>Producers:</strong> These are plants and other organisms that can capture energy from the sun and convert it into food through photosynthesis.</li>
+                <li><strong>Consumers:</strong> These organisms feed on other living organisms for energy. They can be herbivores (plant-eaters), carnivores (meat-eaters), or omnivores (both plant and meat-eaters).</li>
+                <li><strong>Decomposers:</strong> Decomposers break down dead organisms and organic matter, recycling nutrients back into the ecosystem.</li>
+            </ul>
+        </section>
+
+        <section id="importance">
+            <h2>Why Ecosystem Protection Matters</h2>
+            <p>Ecosystems provide essential services for life on Earth. They regulate the climate, support biodiversity, purify water, and much more. Protecting ecosystems is crucial for the well-being of all living organisms.</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Biodiversity">
+                    </div>
+                    <div class="card-content">
+                        <h3>Biodiversity Hotspots</h3>
+                        <p>Ecosystems support millions of species, each playing a unique role in maintaining ecological balance.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Climate Regulation">
+                    </div>
+                    <div class="card-content">
+                        <h3>Climate Regulation</h3>
+                        <p>Forests and oceans act as carbon sinks, helping regulate global temperatures.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Water Purification">
+                    </div>
+                    <div class="card-content">
+                        <h3>Water Purification</h3>
+                        <p>Wetlands and forests naturally filter water, providing clean drinking sources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="threats">
+            <h2>Threats to Our Ecosystems</h2>
+            <p>Several factors can have a significant impact on our ecosystems:</p>
+            <ul>
+                <li>
+                    <strong>Climate Change:</strong> Climate change, driven by the increase in greenhouse gas emissions, leads to rising temperatures, sea level rise, and disrupted weather patterns. This affects ecosystems by altering habitats and migration patterns of species.
+                </li>
+                <li>
+                    <strong>Deforestation:</strong> The large-scale removal of trees and forests for agriculture, urbanization, and logging destroys habitats and reduces the ability of ecosystems to sequester carbon dioxide and support biodiversity.
+                </li>
+                <li>
+                    <strong>Pollution:</strong> Pollution from industrial, agricultural, and urban sources can contaminate air, water, and soil. This harms both terrestrial and aquatic ecosystems and endangers the health of wildlife and humans.
+                </li>
+                <li>
+                    <strong>Overfishing:</strong> Excessive fishing can deplete fish populations, disrupt marine ecosystems, and lead to the collapse of valuable fisheries.
+                </li>
+                <li>
+                    <strong>Invasive Species:</strong> Non-native species introduced into new ecosystems can outcompete native species and disrupt the natural balance of ecosystems.
+                </li>
+            </ul>
+        </section>
+
+        <section id="case-studies">
+            <h2>Success Stories</h2>
+            <p>These case studies demonstrate how ecosystem protection efforts can make a real difference:</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Costa Rica Reforestation">
+                    </div>
+                    <div class="card-content">
+                        <h3>Costa Rica's Reforestation</h3>
+                        <p>Through policy changes and eco-tourism, Costa Rica reversed deforestation and now has over 50% forest cover.</p>
+                        <button onclick="window.location.href='#'">Read More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Great Barrier Reef">
+                    </div>
+                    <div class="card-content">
+                        <h3>Great Barrier Reef Protection</h3>
+                        <p>Conservation efforts have led to coral regrowth in protected areas of the world's largest reef system.</p>
+                        <button onclick="window.location.href='#'">Read More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community Conservation">
+                    </div>
+                    <div class="card-content">
+                        <h3>Community-Led Conservation</h3>
+                        <p>Local initiatives in Kenya have successfully protected wildlife while improving community livelihoods.</p>
+                        <button onclick="window.location.href='#'">Read More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="action">
+            <h2>Take Action Today</h2>
+            <p>There are many ways you can contribute to ecosystem protection in your daily life:</p>
+            
+            <div class="action-grid">
+                <div class="action-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Reduce Waste</h3>
+                    <p>Minimize single-use plastics and recycle properly to reduce pollution.</p>
+                </div>
+                
+                <div class="action-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Conserve Energy</h3>
+                    <p>Use energy-efficient appliances and turn off lights when not in use.</p>
+                </div>
+                
+                <div class="action-item">
+                    <i class="fas fa-tint"></i>
+                    <h3>Save Water</h3>
+                    <p>Fix leaks and reduce water usage to protect freshwater ecosystems.</p>
+                </div>
+                
+                <div class="action-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>Shop Sustainably</h3>
+                    <p>Choose products with minimal packaging and eco-friendly certifications.</p>
+                </div>
+                
+                <div class="action-item">
+                    <i class="fas fa-tree"></i>
+                    <h3>Plant Native</h3>
+                    <p>Grow native plants to support local wildlife and pollinators.</p>
+                </div>
+                
+                <div class="action-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Volunteer</h3>
+                    <p>Join local cleanups or conservation projects in your community.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn-more">
+            <h2>Join the Movement</h2>
+            <p>Ready to make a difference? Explore these resources to learn more and get involved in ecosystem protection efforts worldwide.</p>
+            <button onclick="learnMore()">Get Involved <i class="fas fa-arrow-circle-right"></i></button>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Ecosystem Protection Initiative</h3>
+            <p>Working together to preserve Earth's precious ecosystems for future generations.</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p>&copy; 2023 Ecosystem Protection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        function learnMore() {
+            window.location.href = 'https://www.worldwildlife.org/initiatives/ecosystem-protection';
+        }
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
